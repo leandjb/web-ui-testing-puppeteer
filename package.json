@@ -1,0 +1,15 @@
+{
+  "name": "web-ui-testing-puppeteer",
+  "version": "1.0.0",
+  "description": "This repository is design to scrape websites using Node.js, Puppeteer and proxies for data extraction.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^23.5.1"
+  }
+}
