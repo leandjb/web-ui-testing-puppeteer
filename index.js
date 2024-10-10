@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
+const XLSX = require('xlsx');
 
 (async () => {
-    const itemToSearch = 'nvidia rtx 4070 super';
+    const itemToSearch = 'Nvidia rtx 4070 super';
     const url = 'https://www.ebay.com/';
 
     const browser = await puppeteer.launch({
@@ -56,5 +57,18 @@ const puppeteer = require('puppeteer');
     }
 
     console.log(products);
+    generateExcel(products, itemToSearch);
+
+    await browser.close();
+
 })();
+
+function generateExcel(productsList, itemSearched) {
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(productsList);
+    const xlsxOutputFile = `Products ${itemSearched}.xlsx`;
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Products');
+    XLSX.writeFile(workbook, xlsxOutputFile);   
+}
 
