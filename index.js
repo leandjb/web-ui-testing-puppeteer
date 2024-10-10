@@ -35,6 +35,7 @@ const puppeteer = require('puppeteer');
                 title: product.querySelector('.s-item__title')?.innerText,
                 price: product.querySelector('.s-item__price')?.innerText,
                 shipping: product.querySelector('.s-item__shipping')?.innerText,
+                link: product.querySelector('.s-item__link')?.getAttribute('href'),
             }));
         });
 
